@@ -1,17 +1,14 @@
 def nyc_pigeon_organizer(data)
-  pigeon_list = {}
+  arranged_pigeon_hash = {}
 
-pigeon_data.each do |property, property_hash|
-  property_hash.each do |values, birds_array|
-    birds_array.each do |name|
-      if pigeon_list[name]
-        if pigeon_list[name][property]
-          pigeon_list[name][property] << values
-        else
-          pigeon_list[name][property] = values
+  pigeon_data.each do |attribute, value_hash|
+    value_hash.each do |traits, names_array|
+      names_array.each do |name|
+        if arranged_pigeon_hash[name] ||= { attribute => [traits] }
+          if arranged_pigeon_hash[name][attribute] ||= traits
+            arranged_pigeon_hash[name][attribute] << traits
+          end
         end
-      else
-        pigeon_list[name] = {property => [values]}
       end
     end
   end
