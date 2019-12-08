@@ -15,4 +15,4 @@ pigeon_data.each do |property, property_hash|
       end
     end
   end
-end
+
